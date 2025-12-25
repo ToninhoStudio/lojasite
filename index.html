@@ -3,9 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <title>Loja Toninho Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .products {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .products h3 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .card h4 {
+      margin: 10px 0;
+    }
+
+    .price {
+      font-size: 20px;
+      color: #2575fc;
+      margin: 10px 0;
+    }
+
+    .card button {
+      background: #2575fc;
+      border: none;
+      padding: 12px 20px;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .card button:hover {
+      background: #1a5ed9;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>✅ Loja online</h1>
-  <p>Site ligado com sucesso.</p>
+
+<header>
+  <h1>🛒 Loja Toninho Studio</h1>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#">Produtos</a>
+    <a href="#">Contacto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h2>Bem-vindo à Loja Toninho</h2>
+  <p>Produtos digitais, serviços e criatividade num só lugar</p>
+</section>
+
+<section class="products">
+  <h3>Produtos em Destaque</h3>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Produto 1">
+      <h4>Website Profissional</h4>
+      <p>Site moderno e responsivo</p>
+      <div class="price">€99</div>
+      <button>Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Produto 2">
+      <h4>Loja Online</h4>
+      <p>Venda produtos na internet</p>
+      <div class="price">€149</div>
+      <button>Comprar</button>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200" alt="Produto 3">
+      <h4>Design Gráfico</h4>
+      <p>Logos, banners e artes</p>
+      <div class="price">€49</div>
+      <button>Comprar</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Toninho Studio — Todos os direitos reservados
+</footer>
+
 </body>
 </html>
