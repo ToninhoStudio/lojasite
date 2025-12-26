@@ -163,6 +163,7 @@ footer {
 <div class="grid">
 
 <!-- PRODUTOS -->
+
 <div class="card">
 <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%232575fc'/><text x='150' y='115' font-size='30' fill='white' text-anchor='middle'>💎 Nitro</text></svg>">
 <h3>Nitro Discord</h3>
@@ -184,6 +185,27 @@ footer {
 <button onclick="addToCart('Configuração Servidor',15)">Comprar</button>
 </div>
 
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%232ecc71'/><text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>💻 Scripts</text></svg>">
+<h3>Fazer Scripts</h3>
+<p class="price">€5</p>
+<button onclick="addToCart('Fazer Scripts',5)">Comprar</button>
+</div>
+
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23e67e22'/><text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>🖥️ Host</text></svg>">
+<h3>Comprar Host</h3>
+<p class="price">€5</p>
+<button onclick="addToCart('Comprar Host',5)">Comprar</button>
+</div>
+
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%239b59b6'/><text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>💾 Backup</text></svg>">
+<h3>Comprar Backup</h3>
+<p class="price">€10</p>
+<button onclick="addToCart('Comprar Backup',10)">Comprar</button>
+</div>
+
 </div>
 </section>
 
@@ -195,10 +217,7 @@ footer {
 <h3>Total: €<span id="total">0</span></h3>
 
 <div class="pay">
-  <!-- PAYPAL COM VALOR -->
   <a id="paypalLink" class="paypal" target="_blank">Pagar com PayPal</a>
-
-  <!-- MB WAY -->
   <button class="mbway" onclick="payMBWay()">Pagar com MB Way</button>
 </div>
 
@@ -246,7 +265,6 @@ function updateCart() {
   document.getElementById('total').innerText = total;
   document.getElementById('count').innerText = cart.length;
 
-  // PAYPAL LINK DINÂMICO
   document.getElementById('paypalLink').href =
     `https://www.paypal.me/TEUUSUARIO/${total}`;
 }
