@@ -11,7 +11,7 @@ body{
   font-family:Arial, sans-serif;
   color:#fff;
   background:
-    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),
     url("fundo-hosting.jpg");
   background-size:cover;
   background-attachment:fixed;
@@ -23,9 +23,12 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:15px 25px;
-  background:rgba(0,0,0,.85);
+  background:rgba(0,0,0,.9);
 }
-header h2{color:#00f0ff;margin:0;}
+header h2{
+  margin:0;
+  color:#00f0ff;
+}
 header button{
   background:#00f0ff;
   border:none;
@@ -47,7 +50,7 @@ header button{
 .hero span{color:#00f0ff;}
 .hero p{opacity:.85}
 
-/* ABAS */
+/* TABS */
 .tabs{
   display:flex;
   justify-content:center;
@@ -68,7 +71,7 @@ header button{
   color:#000;
 }
 
-/* PRODUTOS */
+/* SEÇÕES */
 .section{
   display:none;
   max-width:1200px;
@@ -82,15 +85,24 @@ header button{
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
 }
+
+/* CARD */
 .card{
-  background:rgba(15,15,15,.9);
+  background:rgba(15,15,15,.95);
   padding:20px;
   border-radius:12px;
   text-align:center;
-  border:1px solid rgba(0,240,255,.3);
+  border:1px solid rgba(0,240,255,.35);
 }
-.card img{width:100%;}
-.price{color:#00f0ff;font-weight:bold;font-size:18px;}
+.card img{
+  width:100%;
+  margin-bottom:10px;
+}
+.price{
+  color:#00f0ff;
+  font-weight:bold;
+  font-size:18px;
+}
 .card button{
   width:100%;
   padding:10px;
@@ -114,6 +126,7 @@ header button{
   z-index:99;
 }
 #cart.open{right:0;}
+
 .cart-item{
   display:flex;
   justify-content:space-between;
@@ -126,6 +139,7 @@ header button{
   border-radius:4px;
   cursor:pointer;
 }
+
 .pay a,.pay button{
   width:100%;
   display:block;
@@ -140,7 +154,7 @@ header button{
 .mbway{background:#00a859;color:#fff;border:none;}
 
 footer{
-  background:rgba(0,0,0,.85);
+  background:rgba(0,0,0,.9);
   text-align:center;
   padding:20px;
 }
@@ -169,28 +183,44 @@ footer{
 <div class="grid">
 
 <div class="card">
-<img src="https://via.placeholder.com/300x180">
+<img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 180'>
+<rect width='300' height='180' fill='%2300f0ff'/>
+<text x='150' y='110' font-size='28' fill='black' text-anchor='middle'>💎 Nitro</text>
+</svg>">
 <h3>Nitro Discord</h3>
 <p class="price">€5</p>
 <button onclick="addToCart('Nitro Discord',5)">Comprar</button>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/300x180">
+<img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 180'>
+<rect width='300' height='180' fill='%2300f0ff'/>
+<text x='150' y='110' font-size='26' fill='black' text-anchor='middle'>🎨 Logo</text>
+</svg>">
 <h3>Logo Personalizada</h3>
 <p class="price">€10</p>
 <button onclick="addToCart('Logo Personalizada',10)">Comprar</button>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/300x180">
+<img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 180'>
+<rect width='300' height='180' fill='%2300f0ff'/>
+<text x='150' y='110' font-size='26' fill='black' text-anchor='middle'>💻 Scripts</text>
+</svg>">
 <h3>Fazer Scripts</h3>
 <p class="price">€5</p>
 <button onclick="addToCart('Fazer Scripts',5)">Comprar</button>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/300x180">
+<img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 180'>
+<rect width='300' height='180' fill='%2300f0ff'/>
+<text x='150' y='110' font-size='26' fill='black' text-anchor='middle'>💾 Backup</text>
+</svg>">
 <h3>Comprar Backup</h3>
 <p class="price">€10</p>
 <button onclick="addToCart('Comprar Backup',10)">Comprar</button>
@@ -204,14 +234,33 @@ footer{
 <div class="grid">
 
 <div class="card">
-<img src="https://via.placeholder.com/300x180">
+<img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 180'>
+<rect width='300' height='180' fill='%2300f0ff'/>
+<text x='150' y='110' font-size='24' fill='black' text-anchor='middle'>🖥️ FiveM</text>
+</svg>">
 <h3>Host FiveM</h3>
 <p class="price">€5</p>
 <button onclick="addToCart('Host FiveM',5)">Comprar</button>
 </div>
 
 <div class="card">
-<img src="https://via.placeholder.com/300x180">
+<img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 180'>
+<rect width='300' height='180' fill='%2300f0ff'/>
+<text x='150' y='110' font-size='24' fill='black' text-anchor='middle'>🖥️ MTA</text>
+</svg>">
+<h3>Host MTA</h3>
+<p class="price">€5</p>
+<button onclick="addToCart('Host MTA',5)">Comprar</button>
+</div>
+
+<div class="card">
+<img src="data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 180'>
+<rect width='300' height='180' fill='%2300f0ff'/>
+<text x='150' y='110' font-size='22' fill='black' text-anchor='middle'>⚙️ Config</text>
+</svg>">
 <h3>Configuração Servidor</h3>
 <p class="price">€15</p>
 <button onclick="addToCart('Configuração Servidor',15)">Comprar</button>
@@ -237,12 +286,11 @@ footer{
 <footer>© 2025 Toninho Studio</footer>
 
 <script>
-let cart=[],total=0;
+let cart=[], total=0;
 
 function showTab(id,btn){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-
   document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
 }
@@ -255,7 +303,7 @@ function addToCart(name,price){
   cart.push({name,price});
   total+=price;
   updateCart();
-  document.getElementById('cart').classList.add('open'); // FORÇA ABRIR
+  document.getElementById('cart').classList.add('open');
 }
 
 function removeItem(i){
@@ -277,7 +325,7 @@ function updateCart(){
 }
 
 function payMBWay(){
-  if(total==0){alert("Carrinho vazio");return;}
+  if(total===0){alert("Carrinho vazio");return;}
   alert(
     "MB Way\n\nValor: €"+total+
     "\nNúmero: +351 9XXXXXXXX\nDescrição: Toninho Studio"
