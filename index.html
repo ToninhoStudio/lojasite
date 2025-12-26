@@ -2,204 +2,147 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<title>Toninho Studio - Hosting & Loja</title>
+<title>Toninho Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ===== BASE ===== */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #fff;
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  color:#fff;
   background:
-    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.78)),
+    linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
     url("fundo-hosting.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-size:cover;
+  background-attachment:fixed;
 }
 
-/* ===== HEADER ===== */
-header {
-  background: rgba(0,0,0,0.85);
-  padding: 15px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 25px;
+  background:rgba(0,0,0,.85);
+}
+header h2{color:#00f0ff;margin:0;}
+header button{
+  background:#00f0ff;
+  border:none;
+  padding:10px 15px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-header h2 {
-  margin: 0;
-  color: #00f0ff;
+/* HERO */
+.hero{
+  text-align:center;
+  padding:90px 20px;
+}
+.hero h1{
+  font-size:50px;
+  font-weight:900;
+}
+.hero span{color:#00f0ff;}
+.hero p{opacity:.85}
+
+/* ABAS */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:30px;
+}
+.tabs button{
+  background:none;
+  border:2px solid #00f0ff;
+  color:#00f0ff;
+  padding:10px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.tabs button.active{
+  background:#00f0ff;
+  color:#000;
 }
 
-header button {
-  background: #00f0ff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
+/* PRODUTOS */
+.section{
+  display:none;
+  max-width:1200px;
+  margin:auto;
+  padding:50px 20px;
+}
+.section.active{display:block;}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+.card{
+  background:rgba(15,15,15,.9);
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  border:1px solid rgba(0,240,255,.3);
+}
+.card img{width:100%;}
+.price{color:#00f0ff;font-weight:bold;font-size:18px;}
+.card button{
+  width:100%;
+  padding:10px;
+  background:#00f0ff;
+  border:none;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* ===== HERO ===== */
-.hero {
-  min-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 60px 20px;
+/* CARRINHO */
+#cart{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:330px;
+  height:100%;
+  background:#0b0b0b;
+  padding:20px;
+  transition:.3s;
+  z-index:99;
 }
-
-.hero h1 {
-  font-size: 56px;
-  font-weight: 900;
+#cart.open{right:0;}
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:8px;
 }
-
-.hero h1 span {
-  color: #00f0ff;
+.cart-item button{
+  background:red;
+  border:none;
+  color:#fff;
+  border-radius:4px;
+  cursor:pointer;
 }
-
-.hero p {
-  max-width: 750px;
-  font-size: 18px;
-  opacity: 0.85;
+.pay a,.pay button{
+  width:100%;
+  display:block;
+  margin-top:8px;
+  padding:10px;
+  border-radius:6px;
+  font-weight:bold;
+  text-decoration:none;
+  text-align:center;
 }
+.paypal{background:#ffc439;color:#000;}
+.mbway{background:#00a859;color:#fff;border:none;}
 
-.hero .buttons {
-  margin-top: 30px;
-}
-
-.hero .buttons a {
-  padding: 14px 28px;
-  margin: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.btn-primary {
-  background: #00f0ff;
-  color: #000;
-}
-
-.btn-outline {
-  border: 2px solid #00f0ff;
-  color: #00f0ff;
-}
-
-/* ===== PRODUTOS ===== */
-.products {
-  max-width: 1200px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-.products h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 25px;
-}
-
-.card {
-  background: rgba(15,15,15,0.9);
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  border: 1px solid rgba(0,240,255,0.25);
-}
-
-.card img {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.price {
-  font-size: 20px;
-  color: #00f0ff;
-  font-weight: bold;
-}
-
-.card button {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background: #00f0ff;
-  color: #000;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* ===== CARRINHO ===== */
-#cart {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 330px;
-  height: 100%;
-  background: #0c0c0c;
-  padding: 20px;
-  box-shadow: -5px 0 20px rgba(0,0,0,.7);
-  transition: .3s;
-  z-index: 10;
-}
-
-#cart.open {
-  right: 0;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.cart-item button {
-  background: red;
-  border: none;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 2px 6px;
-}
-
-.pay a, .pay button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  border-radius: 6px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-}
-
-.pay .paypal {
-  background: #ffc439;
-  color: #111;
-}
-
-.pay .mbway {
-  background: #00a859;
-  color: #fff;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: rgba(0,0,0,0.85);
+footer{
+  background:rgba(0,0,0,.85);
+  text-align:center;
+  padding:20px;
 }
 </style>
 </head>
@@ -208,38 +151,139 @@ footer {
 
 <header>
   <h2>TONINHO STUDIO</h2>
-  <button onclick="toggleCart()">Carrinho (<span id="count">0</span>)</button>
+  <button onclick="toggleCart()">🛒 Carrinho (<span id="count">0</span>)</button>
 </header>
 
 <section class="hero">
   <h1>HOSTING <span>FIVEM</span> & <span>MTA</span></h1>
-  <p>Servidores de alta performance para sua comunidade.
-     Hardware premium, proteção DDoS e suporte 24/7.</p>
+  <p>Alta performance, proteção DDoS e suporte 24/7</p>
 
-  <div class="buttons">
-    <a href="#produtos" class="btn-primary">COMEÇAR AGORA</a>
-    <a href="#produtos" class="btn-outline">Ver Planos</a>
+  <div class="tabs">
+    <button class="active" onclick="showTab('loja',this)">🛒 Loja</button>
+    <button onclick="showTab('hosts',this)">🖥️ Hosts</button>
   </div>
 </section>
 
-<section class="products" id="produtos">
-<h2>Produtos & Serviços</h2>
-
+<!-- LOJA -->
+<section id="loja" class="section active">
 <div class="grid">
 
 <div class="card">
-<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%2300f0ff'/><text x='150' y='115' font-size='30' fill='black' text-anchor='middle'>💎 Nitro</text></svg>">
+<img src="https://via.placeholder.com/300x180">
 <h3>Nitro Discord</h3>
 <p class="price">€5</p>
 <button onclick="addToCart('Nitro Discord',5)">Comprar</button>
 </div>
 
 <div class="card">
-<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%2300f0ff'/><text x='150' y='115' font-size='26' fill='black' text-anchor='middle'>🎨 Logo</text></svg>">
+<img src="https://via.placeholder.com/300x180">
 <h3>Logo Personalizada</h3>
 <p class="price">€10</p>
 <button onclick="addToCart('Logo Personalizada',10)">Comprar</button>
 </div>
 
 <div class="card">
-<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0
+<img src="https://via.placeholder.com/300x180">
+<h3>Fazer Scripts</h3>
+<p class="price">€5</p>
+<button onclick="addToCart('Fazer Scripts',5)">Comprar</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x180">
+<h3>Comprar Backup</h3>
+<p class="price">€10</p>
+<button onclick="addToCart('Comprar Backup',10)">Comprar</button>
+</div>
+
+</div>
+</section>
+
+<!-- HOSTS -->
+<section id="hosts" class="section">
+<div class="grid">
+
+<div class="card">
+<img src="https://via.placeholder.com/300x180">
+<h3>Host FiveM</h3>
+<p class="price">€5</p>
+<button onclick="addToCart('Host FiveM',5)">Comprar</button>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x180">
+<h3>Configuração Servidor</h3>
+<p class="price">€15</p>
+<button onclick="addToCart('Configuração Servidor',15)">Comprar</button>
+</div>
+
+</div>
+</section>
+
+<!-- CARRINHO -->
+<div id="cart">
+<h2>Carrinho</h2>
+<div id="items"></div>
+<h3>Total: €<span id="total">0</span></h3>
+
+<div class="pay">
+<a id="paypal" class="paypal" target="_blank">Pagar com PayPal</a>
+<button class="mbway" onclick="payMBWay()">Pagar com MB Way</button>
+</div>
+
+<button onclick="toggleCart()">Fechar</button>
+</div>
+
+<footer>© 2025 Toninho Studio</footer>
+
+<script>
+let cart=[],total=0;
+
+function showTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function toggleCart(){
+  document.getElementById('cart').classList.toggle('open');
+}
+
+function addToCart(name,price){
+  cart.push({name,price});
+  total+=price;
+  updateCart();
+  document.getElementById('cart').classList.add('open'); // FORÇA ABRIR
+}
+
+function removeItem(i){
+  total-=cart[i].price;
+  cart.splice(i,1);
+  updateCart();
+}
+
+function updateCart(){
+  let html='';
+  cart.forEach((item,i)=>{
+    html+=`<div class="cart-item">${item.name} €${item.price}
+    <button onclick="removeItem(${i})">X</button></div>`;
+  });
+  document.getElementById('items').innerHTML=html;
+  document.getElementById('total').innerText=total;
+  document.getElementById('count').innerText=cart.length;
+  document.getElementById('paypal').href=`https://www.paypal.me/TEUUSUARIO/${total}`;
+}
+
+function payMBWay(){
+  if(total==0){alert("Carrinho vazio");return;}
+  alert(
+    "MB Way\n\nValor: €"+total+
+    "\nNúmero: +351 9XXXXXXXX\nDescrição: Toninho Studio"
+  );
+}
+</script>
+
+</body>
+</html>
