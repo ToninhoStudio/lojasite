@@ -1,223 +1,266 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>Loja Toninho Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Loja Toninho Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #333;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
 
-    header {
-      background: #111;
-      color: #fff;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  background: #111;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
+header button {
+  background: #2575fc;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    nav a {
-      color: #fff;
-      margin-left: 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.hero {
+  background: linear-gradient(135deg,#6a11cb,#2575fc);
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: #fff;
-      text-align: center;
-      padding: 80px 20px;
-    }
+.products {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
 
-    .hero h2 {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+}
 
-    .hero p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
 
-    .products {
-      padding: 50px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.card img {
+  width: 100%;
+  margin-bottom: 10px;
+}
 
-    .products h3 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 28px;
-    }
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2575fc;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
+.card button {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background: #2575fc;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    .card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-    }
+/* CARRINHO */
+#cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -5px 0 15px rgba(0,0,0,.2);
+  padding: 20px;
+  transition: .3s;
+  overflow-y: auto;
+}
 
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 15px;
-    }
+#cart.open {
+  right: 0;
+}
 
-    .card h4 {
-      margin: 10px 0;
-    }
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 
-    .price {
-      font-size: 20px;
-      color: #2575fc;
-      margin: 10px 0;
-      font-weight: bold;
-    }
+.cart-item button {
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
 
-    .card button {
-      background: #2575fc;
-      border: none;
-      padding: 12px 20px;
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-    }
+.pay {
+  margin-top: 20px;
+}
 
-    .card button:hover {
-      background: #1a5ed9;
-    }
+.pay a {
+  display: block;
+  text-align: center;
+  background: #ffc439;
+  color: #111;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 60px;
-      font-size: 14px;
-    }
-  </style>
+.pay .mbway {
+  background: #00a859;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: white;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>🛒 Loja Toninho Studio</h1>
-  <nav>
-    <a href="#">Início</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#">Contacto</a>
-  </nav>
+  <h2>🛒 Loja Toninho</h2>
+  <button onclick="toggleCart()">Carrinho (<span id="count">0</span>)</button>
 </header>
 
 <section class="hero">
-  <h2>Bem-vindo à Loja Toninho</h2>
-  <p>Serviços digitais rápidos, simples e acessíveis</p>
+  <h1>Serviços Digitais</h1>
+  <p>Escolhe, adiciona ao carrinho e paga facilmente</p>
 </section>
 
-<section class="products" id="produtos">
-  <h3>Produtos à Venda</h3>
+<section class="products">
+<div class="grid">
 
-  <div class="grid">
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%232575fc'/><text x='150' y='115' font-size='30' fill='white' text-anchor='middle'>💎 Nitro</text></svg>">
+<h3>Nitro Discord</h3>
+<p class="price">€5</p>
+<button onclick="addToCart('Nitro Discord',5)">Adicionar</button>
+</div>
 
-    <div class="card">
-      <img src="data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'>
-        <rect width='300' height='200' fill='%232575fc'/>
-        <text x='150' y='115' font-size='30' fill='white' text-anchor='middle'>💎 Nitro</text>
-      </svg>">
-      <h4>1️⃣ Nitro Discord 💎</h4>
-      <p>Benefícios premium no Discord</p>
-      <div class="price">€5</div>
-      <button>Comprar</button>
-    </div>
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%236a11cb'/><text x='150' y='115' font-size='28' fill='white' text-anchor='middle'>🎨 Logo</text></svg>">
+<h3>Logo Personalizada</h3>
+<p class="price">€10</p>
+<button onclick="addToCart('Logo Personalizada',10)">Adicionar</button>
+</div>
 
-    <div class="card">
-      <img src="data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'>
-        <rect width='300' height='200' fill='%236a11cb'/>
-        <text x='150' y='115' font-size='28' fill='white' text-anchor='middle'>🎨 Logo</text>
-      </svg>">
-      <h4>2️⃣ Logo Personalizada 🎨</h4>
-      <p>Design exclusivo e profissional</p>
-      <div class="price">€10</div>
-      <button>Comprar</button>
-    </div>
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%2300a8ff'/><text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>⚙️ Servidor</text></svg>">
+<h3>Configuração Servidor</h3>
+<p class="price">€15</p>
+<button onclick="addToCart('Configuração Servidor',15)">Adicionar</button>
+</div>
 
-    <div class="card">
-      <img src="data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'>
-        <rect width='300' height='200' fill='%2300a8ff'/>
-        <text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>⚙️ Servidor</text>
-      </svg>">
-      <h4>3️⃣ Configuração de Servidor ⚙️</h4>
-      <p>Servidor Discord profissional</p>
-      <div class="price">€15</div>
-      <button>Comprar</button>
-    </div>
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%232ecc71'/><text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>💻 Scripts</text></svg>">
+<h3>Fazer Scripts</h3>
+<p class="price">€5</p>
+<button onclick="addToCart('Fazer Scripts',5)">Adicionar</button>
+</div>
 
-    <div class="card">
-      <img src="data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'>
-        <rect width='300' height='200' fill='%232ecc71'/>
-        <text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>💻 Scripts</text>
-      </svg>">
-      <h4>4️⃣ Fazer Scripts 💻</h4>
-      <p>Scripts simples e personalizados</p>
-      <div class="price">€5</div>
-      <button>Comprar</button>
-    </div>
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%23e67e22'/><text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>🖥️ Host</text></svg>">
+<h3>Comprar Host</h3>
+<p class="price">€5</p>
+<button onclick="addToCart('Comprar Host',5)">Adicionar</button>
+</div>
 
-    <div class="card">
-      <img src="data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'>
-        <rect width='300' height='200' fill='%23e67e22'/>
-        <text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>🖥️ Host</text>
-      </svg>">
-      <h4>5️⃣ Comprar Host 🖥️</h4>
-      <p>Host básico para projetos</p>
-      <div class="price">€5</div>
-      <button>Comprar</button>
-    </div>
+<div class="card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><rect width='300' height='200' fill='%239b59b6'/><text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>💾 Backup</text></svg>">
+<h3>Comprar Backup</h3>
+<p class="price">€10</p>
+<button onclick="addToCart('Comprar Backup',10)">Adicionar</button>
+</div>
 
-    <div class="card">
-      <img src="data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'>
-        <rect width='300' height='200' fill='%239b59b6'/>
-        <text x='150' y='115' font-size='26' fill='white' text-anchor='middle'>💾 Backup</text>
-      </svg>">
-      <h4>6️⃣ Comprar Backup 💾</h4>
-      <p>Backup seguro dos teus dados</p>
-      <div class="price">€10</div>
-      <button>Comprar</button>
-    </div>
+</div>
+</section>
 
+<!-- CARRINHO -->
+<div id="cart">
+<h2>Carrinho</h2>
+<div id="items"></div>
+<h3>Total: €<span id="total">0</span></h3>
+
+<div class="pay">
+  <!-- PAYPAL -->
+  <a href="https://www.paypal.me/TEUUSUARIO" target="_blank">Pagar com PayPal</a>
+
+  <!-- MB WAY -->
+  <div class="mbway">
+    📱 MB Way: envia o valor total para <b>+351 9XXXXXXXX</b>
   </div>
-</section>
+</div>
+
+<button onclick="toggleCart()">Fechar</button>
+</div>
 
 <footer>
-  © 2025 Toninho Studio — Todos os direitos reservados
+© 2025 Toninho Studio
 </footer>
+
+<script>
+let cart = [];
+let total = 0;
+
+function toggleCart() {
+  document.getElementById('cart').classList.toggle('open');
+}
+
+function addToCart(name, price) {
+  cart.push({name, price});
+  total += price;
+  updateCart();
+}
+
+function removeItem(index) {
+  total -= cart[index].price;
+  cart.splice(index,1);
+  updateCart();
+}
+
+function updateCart() {
+  const items = document.getElementById('items');
+  items.innerHTML = '';
+  cart.forEach((item,i) => {
+    items.innerHTML += `
+      <div class="cart-item">
+        ${item.name} (€${item.price})
+        <button onclick="removeItem(${i})">X</button>
+      </div>
+    `;
+  });
+  document.getElementById('total').innerText = total;
+  document.getElementById('count').innerText = cart.length;
+}
+</script>
 
 </body>
 </html>
+
